@@ -9,7 +9,7 @@ coreos:
     initial-advertise-peer-urls: http://$private_ipv4:2380
     listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
     listen-peer-urls: http://$private_ipv4:2380,http://$private_ipv4:7001
-    discovery: https://discovery.etcd.io/e30b39fe5d21d074d2c0c8e356e60576
+    discovery: https://discovery.etcd.io/80bca3f06905e9eb2b9740ff93a7797b
   fleet:
     public-ip: $public_ipv4
   flannel:
@@ -33,3 +33,5 @@ coreos:
 
       [Install]
       WantedBy=sockets.target
+  - name: consul.service
+    command: start

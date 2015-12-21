@@ -138,6 +138,9 @@ Vagrant.configure("2") do |config|
         config.vm.provision :shell, :inline => "mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/", :privileged => true
       end
 
+      # add consul service
+      config.vm.provision :file, :source => "consul.service", :destination => "/lib/systemd/system/consul.service"
+
     end
   end
 end
