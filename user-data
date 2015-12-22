@@ -33,5 +33,3 @@ coreos:
 
       [Install]
       WantedBy=sockets.target
-  - name: consul.service
-    command: start
