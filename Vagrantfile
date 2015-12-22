@@ -140,7 +140,7 @@ Vagrant.configure("2") do |config|
 
       # add consul service
       config.vm.provision :file, :source => "consul.service", :destination => "/home/core/consul.service"
-      config.vm.provision :shell, :inline => "fleetctl start /home/core/consul.service", :privileged => true
+      config.vm.provision :shell, :inline => "sleep 10 && fleetctl start /home/core/consul.service", :privileged => true
 
     end
   end
