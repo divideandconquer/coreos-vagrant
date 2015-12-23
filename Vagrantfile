@@ -138,6 +138,10 @@ Vagrant.configure("2") do |config|
         config.vm.provision :shell, :inline => "mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/", :privileged => true
       end
 
+      # add consul service
+      config.vm.provision :file, :source => "consul.service", :destination => "/home/core/consul.service"
+      config.vm.provision :shell, :inline => "sleep 10 && fleetctl start /home/core/consul.service", :privileged => true
+
     end
   end
 end
